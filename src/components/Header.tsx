@@ -11,11 +11,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200/60">
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl">🤖</span>
-          <span className="text-xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            AI仕事術
-          </span>
+        <Link href="/" className="text-xl font-extrabold text-gray-900">
+          AI仕事術
         </Link>
         <nav className="hidden md:flex items-center gap-1">
           {categories.map((cat) => (

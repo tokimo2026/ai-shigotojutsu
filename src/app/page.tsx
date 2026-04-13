@@ -33,8 +33,6 @@ const badgeClass: Record<string, string> = {
 
 export default function Home() {
   const posts = getAllPosts();
-  const featured = posts.slice(0, 3);
-  const rest = posts.slice(3);
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -70,21 +68,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured posts card */}
+        {/* All articles grid */}
         <section
           id="articles"
           className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-12 mb-10"
         >
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
-              注目の記事
+              記事一覧
             </h2>
             <p className="text-sm text-gray-500">
               実際に使って検証した、おすすめの記事
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {featured.map((post) => (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
               <article key={post.slug} className="group">
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="mb-3">
@@ -109,34 +107,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {/* All posts list */}
-        {rest.length > 0 && (
-          <section className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-12 mb-10">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8">
-              すべての記事
-            </h2>
-            <div className="divide-y divide-gray-100">
-              {rest.map((post) => (
-                <article key={post.slug} className="py-5 first:pt-0 last:pb-0">
-                  <Link href={`/blog/${post.slug}`} className="group block">
-                    <div className="flex items-center gap-2 mb-2 flex-wrap">
-                      <span
-                        className={`text-xs font-bold px-2.5 py-1 rounded-full ${badgeClass[post.categorySlug] || "badge-ai-tools"}`}
-                      >
-                        {post.category}
-                      </span>
-                      <time className="text-xs text-gray-400">{post.date}</time>
-                    </div>
-                    <h3 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                      {post.title}
-                    </h3>
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* Categories card */}
         <section className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-12">
