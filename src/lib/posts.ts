@@ -4,6 +4,8 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
+const remarkHtmlOptions = { sanitize: false } as const;
+
 const postsDir = path.join(process.cwd(), "src/content/posts");
 
 export interface PostMeta {
@@ -31,7 +33,7 @@ export function getAllPosts(): PostMeta[] {
 export async function getPostBySlug(slug: string) {
   const raw = fs.readFileSync(path.join(postsDir, `${slug}.md`), "utf-8");
   const { data, content } = matter(raw);
-  const result = await remark().use(html).process(content);
+  const result = await remark().use(html, remarkHtmlOptions).process(content);
   return {
     meta: { slug, ...data } as PostMeta,
     contentHtml: result.toString(),
