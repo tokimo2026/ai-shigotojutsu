@@ -47,17 +47,7 @@ export default function AboutPage() {
 
             <h2>運営者</h2>
             <p>
-              <strong>Tokimo2026</strong>（運営者 / ライター）。AIを活用した業務効率化・自動化を日常的に実践しています。Claude Code、ChatGPT、各種自動化ツールのヘビーユーザーで、本サイトでは実際に使い倒したツールのみを紹介しています。
-            </p>
-            <p>
-              X（旧Twitter）でも情報発信中：
-              <a
-                href="https://x.com/tokimo2026"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @tokimo2026
-              </a>
+              <strong>AI仕事術 編集部</strong>。AIツール・自動化・業務効率化に関する情報を、実機検証ベースで発信するメディアです。中の人は本業でWeb制作・コンサルティングに携わっており、日常業務でAIツールを実際に運用しています。
             </p>
 
             <h2>お問い合わせ</h2>
