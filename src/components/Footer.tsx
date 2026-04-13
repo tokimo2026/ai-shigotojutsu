@@ -24,10 +24,12 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">リンク</h3>
+            <h3 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">サイト情報</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white transition-colors">このサイトについて</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">お問い合わせ</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">お問い合わせ</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">プライバシーポリシー</Link></li>
+              <li><Link href="/disclaimer" className="hover:text-white transition-colors">免責事項</Link></li>
             </ul>
           </div>
         </div>

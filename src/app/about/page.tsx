@@ -39,10 +39,9 @@ export default function AboutPage() {
 
         <h2>お問い合わせ</h2>
         <p>
-          記事に関するご質問・ご指摘、レビュー依頼などは以下までご連絡ください。
-        </p>
-        <p>
-          <strong>メール:</strong> contact@ai-shigotojutsu.com
+          記事に関するご質問・ご指摘、レビュー依頼などは
+          <a href="/contact">お問い合わせフォーム</a>
+          よりご連絡ください。
         </p>
       </div>
     </div>
