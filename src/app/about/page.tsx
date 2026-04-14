@@ -9,15 +9,16 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen">
       <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
-        <header className="mb-14 pb-10 border-b border-black">
-          <p className="text-sm font-semibold text-gray-500 tracking-wide mb-4">
-            このサイトについて
+        <header className="mb-16">
+          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+            About
           </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-black leading-tight tracking-tight">
+          <h1 className="font-serif-jp text-3xl md:text-5xl font-bold text-[#1a1a1a] leading-[1.3] tracking-tight mb-4">
             AI仕事術の運営方針
           </h1>
+          <div className="border-b border-[#1a1a1a] mt-8" />
         </header>
 
         <div className="article-body">
@@ -64,10 +65,10 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <footer className="mt-20 pt-8 border-t border-gray-200">
+        <footer className="mt-24 pt-10 border-t border-[#e8e2d6]">
           <Link
             href="/"
-            className="text-sm font-semibold text-black hover:underline underline-offset-4"
+            className="text-sm font-semibold text-[#1a1a1a] hover:text-[#da7756] transition-colors"
           >
             ← トップに戻る
           </Link>

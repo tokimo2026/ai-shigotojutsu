@@ -8,15 +8,16 @@ export const metadata: Metadata = {
 
 export default function DisclaimerPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen">
       <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
-        <header className="mb-14 pb-10 border-b border-black">
-          <p className="text-sm font-semibold text-gray-500 tracking-wide mb-4">
-            法的情報
+        <header className="mb-16">
+          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+            Legal
           </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-black leading-tight tracking-tight">
+          <h1 className="font-serif-jp text-3xl md:text-5xl font-bold text-[#1a1a1a] leading-[1.3] tracking-tight">
             免責事項
           </h1>
+          <div className="border-b border-[#1a1a1a] mt-8" />
         </header>
 
         <div className="article-body">
@@ -50,15 +51,15 @@ export default function DisclaimerPage() {
             当サイトに掲載されている文章・画像・動画等の著作物の著作権は、当サイト運営者または引用元に帰属します。無断転載・複製を禁じます。引用の際は、引用元として当サイトのURLを明記してください。
           </p>
 
-          <p style={{ marginTop: "48px", fontSize: "13px", color: "#6b7280" }}>
+          <p style={{ marginTop: "48px", fontSize: "13px", color: "#6b6459" }}>
             制定日：2026年4月13日
           </p>
         </div>
 
-        <footer className="mt-20 pt-8 border-t border-gray-200">
+        <footer className="mt-24 pt-10 border-t border-[#e8e2d6]">
           <Link
             href="/"
-            className="text-sm font-semibold text-black hover:underline underline-offset-4"
+            className="text-sm font-semibold text-[#1a1a1a] hover:text-[#da7756] transition-colors"
           >
             ← トップに戻る
           </Link>

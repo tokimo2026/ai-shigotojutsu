@@ -43,43 +43,43 @@ export default async function CategoryPage({ params }: Props) {
   const posts = getAllPosts().filter((p) => p.categorySlug === slug);
 
   return (
-    <div className="bg-white min-h-screen">
-      <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
-        <section className="mb-16">
-          <p className="text-sm font-semibold text-gray-500 tracking-wide mb-4">
-            カテゴリ
+    <div className="min-h-screen">
+      <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <section className="mb-16 max-w-3xl">
+          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+            Category
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-black leading-tight tracking-tight mb-4">
+          <h1 className="font-serif-jp text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-tight tracking-tight mb-5">
             {cat.name}
           </h1>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl">
+          <p className="text-base md:text-lg text-[#3a3530] leading-relaxed">
             {cat.desc}
           </p>
-          <p className="text-sm text-gray-500 mt-5">{posts.length}本の記事</p>
+          <p className="text-xs text-[#6b6459] mt-5">{posts.length}本の記事</p>
         </section>
 
         <section className="mb-16">
-          <div className="border-b border-black mb-6" />
+          <div className="border-t border-[#1a1a1a]" />
           {posts.length === 0 ? (
-            <p className="text-gray-500 py-8">
+            <p className="text-[#6b6459] py-8">
               このカテゴリの記事はまだありません。
             </p>
           ) : (
-            <ul className="divide-y divide-gray-200">
+            <ul>
               {posts.map((post) => (
-                <li key={post.slug}>
+                <li key={post.slug} className="border-b border-[#e8e2d6]">
                   <Link href={`/blog/${post.slug}`} className="group block py-7">
-                    <div className="flex items-center gap-3 mb-3 text-xs text-gray-500">
-                      <span className="font-semibold text-black">{post.category}</span>
+                    <div className="flex items-center gap-3 mb-2 text-xs text-[#6b6459]">
+                      <span className="font-semibold text-[#da7756]">{post.category}</span>
                       <span>·</span>
                       <time>{post.date}</time>
                       <span>·</span>
                       <span>読了 {post.readTime}</span>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-black leading-snug mb-2 group-hover:underline underline-offset-4 decoration-2">
+                    <h3 className="font-serif-jp text-xl md:text-2xl font-bold text-[#1a1a1a] leading-snug mb-2 group-hover:text-[#c5532e] transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2">
+                    <p className="text-sm text-[#3a3530] leading-relaxed line-clamp-2">
                       {post.description}
                     </p>
                   </Link>
@@ -91,7 +91,7 @@ export default async function CategoryPage({ params }: Props) {
 
         <Link
           href="/"
-          className="text-sm font-semibold text-black hover:underline underline-offset-4"
+          className="text-sm font-semibold text-[#1a1a1a] hover:text-[#da7756] transition-colors"
         >
           ← トップに戻る
         </Link>

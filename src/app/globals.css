@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111111;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #111111;
-  --link: #1d4ed8;
+  --background: #faf7f2;
+  --surface: #ffffff;
+  --foreground: #1a1a1a;
+  --muted: #6b6459;
+  --border: #e8e2d6;
+  --border-strong: #1a1a1a;
+  --accent: #da7756;
+  --accent-dark: #b85c3e;
+  --link: #c5532e;
 }
 
 @theme inline {
@@ -24,41 +27,48 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Category label (monochrome outline) */
-.badge-ai-tools,
-.badge-productivity,
-.badge-automation,
-.badge-prompts {
-  background: transparent;
-  color: #111111;
-  border: 1px solid #111111;
-  font-weight: 600;
+.font-serif-jp {
+  font-family: "Hiragino Mincho ProN", "游明朝", YuMincho, "Yu Mincho",
+    "MS P明朝", serif;
+  font-feature-settings: "palt";
 }
 
 /* Article body typography */
 .article-body {
   font-size: 17px;
   line-height: 2.0;
-  color: #1f2937;
+  color: #2a2a2a;
   letter-spacing: 0.02em;
 }
 
 .article-body h2 {
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1.4;
-  margin-top: 72px;
-  margin-bottom: 24px;
-  color: #111111;
+  font-family: "Hiragino Mincho ProN", "游明朝", YuMincho, "Yu Mincho", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-top: 80px;
+  margin-bottom: 28px;
+  color: #1a1a1a;
+  position: relative;
+  padding-left: 20px;
+}
+.article-body h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 12px;
+  width: 4px;
+  background: var(--accent);
 }
 
 .article-body h3 {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
   line-height: 1.5;
-  margin-top: 48px;
-  margin-bottom: 16px;
-  color: #111111;
+  margin-top: 52px;
+  margin-bottom: 18px;
+  color: #1a1a1a;
 }
 
 .article-body h4 {
@@ -66,7 +76,7 @@ body {
   font-weight: 700;
   margin-top: 36px;
   margin-bottom: 12px;
-  color: #111111;
+  color: #1a1a1a;
 }
 
 .article-body p {
@@ -75,15 +85,17 @@ body {
 }
 
 .article-body strong {
-  color: #111111;
+  color: #1a1a1a;
   font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1px;
 }
 
 .article-body a {
   color: var(--link);
   font-weight: 500;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
 .article-body a:hover {
@@ -104,8 +116,8 @@ body {
 }
 
 .article-body code {
-  background: #f3f4f6;
-  color: #111111;
+  background: #f1ede3;
+  color: #1a1a1a;
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.88em;
@@ -113,8 +125,8 @@ body {
 }
 
 .article-body pre {
-  background: #111111;
-  color: #e5e7eb;
+  background: #1a1a1a;
+  color: #faf7f2;
   padding: 20px 24px;
   border-radius: 6px;
   overflow-x: auto;
@@ -129,9 +141,10 @@ body {
 }
 
 .article-body blockquote {
-  border-left: 3px solid #111111;
-  padding: 4px 0 4px 20px;
+  border-left: 4px solid var(--accent);
+  background: #f1ede3;
+  padding: 16px 24px;
   margin-bottom: 28px;
-  color: #4b5563;
+  color: #3a3530;
   font-style: normal;
 }

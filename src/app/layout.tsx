@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="h-full antialiased scroll-smooth">
-      <body className="min-h-full flex flex-col bg-white text-gray-900">
+      <body className="min-h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

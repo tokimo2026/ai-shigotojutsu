@@ -8,24 +8,25 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen">
       <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
-        <header className="mb-14 pb-10 border-b border-black">
-          <p className="text-sm font-semibold text-gray-500 tracking-wide mb-4">
-            お問い合わせ
+        <header className="mb-16">
+          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+            Contact
           </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-black leading-tight tracking-tight mb-5">
+          <h1 className="font-serif-jp text-3xl md:text-5xl font-bold text-[#1a1a1a] leading-[1.3] tracking-tight mb-5">
             ご連絡フォーム
           </h1>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+          <p className="text-base md:text-lg text-[#3a3530] leading-relaxed">
             記事に関するご質問・ご指摘、レビュー依頼、広告掲載のご相談などはこちらからお気軽にご連絡ください。
           </p>
+          <div className="border-b border-[#1a1a1a] mt-8" />
         </header>
 
         <form
           action="https://formsubmit.co/tomakikomatsu1109@gmail.com"
           method="POST"
-          className="space-y-6"
+          className="space-y-6 bg-white border border-[#e8e2d6] p-8 md:p-10"
         >
           <input type="hidden" name="_subject" value="AI仕事術 お問い合わせ" />
           <input type="hidden" name="_captcha" value="false" />
@@ -34,7 +35,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-semibold text-black mb-2"
+              className="block text-sm font-semibold text-[#1a1a1a] mb-2"
             >
               お名前
             </label>
@@ -43,7 +44,7 @@ export default function ContactPage() {
               id="name"
               name="name"
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+              className="w-full px-4 py-3 border border-[#e8e2d6] bg-[#faf7f2] focus:outline-none focus:border-[#da7756] transition-colors"
               placeholder="山田 太郎"
             />
           </div>
@@ -51,7 +52,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-semibold text-black mb-2"
+              className="block text-sm font-semibold text-[#1a1a1a] mb-2"
             >
               メールアドレス
             </label>
@@ -60,7 +61,7 @@ export default function ContactPage() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+              className="w-full px-4 py-3 border border-[#e8e2d6] bg-[#faf7f2] focus:outline-none focus:border-[#da7756] transition-colors"
               placeholder="example@email.com"
             />
           </div>
@@ -68,7 +69,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="subject"
-              className="block text-sm font-semibold text-black mb-2"
+              className="block text-sm font-semibold text-[#1a1a1a] mb-2"
             >
               件名
             </label>
@@ -76,7 +77,7 @@ export default function ContactPage() {
               id="subject"
               name="subject"
               required
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black bg-white"
+              className="w-full px-4 py-3 border border-[#e8e2d6] bg-[#faf7f2] focus:outline-none focus:border-[#da7756] transition-colors"
             >
               <option value="">選択してください</option>
               <option value="記事に関する質問">記事に関する質問</option>
@@ -90,7 +91,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-black mb-2"
+              className="block text-sm font-semibold text-[#1a1a1a] mb-2"
             >
               お問い合わせ内容
             </label>
@@ -99,14 +100,14 @@ export default function ContactPage() {
               name="message"
               required
               rows={6}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black resize-none"
+              className="w-full px-4 py-3 border border-[#e8e2d6] bg-[#faf7f2] focus:outline-none focus:border-[#da7756] transition-colors resize-none"
               placeholder="お問い合わせ内容をご記入ください"
             />
           </div>
 
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-[#6b6459]">
             送信いただいた個人情報は
-            <Link href="/privacy" className="text-black underline underline-offset-2">
+            <Link href="/privacy" className="text-[#c5532e] underline underline-offset-2">
               プライバシーポリシー
             </Link>
             に従って適切に管理いたします。
@@ -114,20 +115,20 @@ export default function ContactPage() {
 
           <button
             type="submit"
-            className="w-full py-4 bg-black text-white font-bold hover:bg-gray-800 transition-colors"
+            className="w-full py-4 bg-[#1a1a1a] text-[#faf7f2] font-bold hover:bg-[#da7756] transition-colors"
           >
             送信する
           </button>
         </form>
 
-        <p className="mt-10 text-sm text-gray-500">
+        <p className="mt-10 text-sm text-[#6b6459]">
           お返事までに数日いただく場合がございます。あらかじめご了承ください。
         </p>
 
-        <footer className="mt-20 pt-8 border-t border-gray-200">
+        <footer className="mt-24 pt-10 border-t border-[#e8e2d6]">
           <Link
             href="/"
-            className="text-sm font-semibold text-black hover:underline underline-offset-4"
+            className="text-sm font-semibold text-[#1a1a1a] hover:text-[#da7756] transition-colors"
           >
             ← トップに戻る
           </Link>
