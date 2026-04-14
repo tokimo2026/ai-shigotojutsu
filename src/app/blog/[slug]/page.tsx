@@ -19,13 +19,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const badgeClass: Record<string, string> = {
-  "ai-tools": "badge-ai-tools",
-  productivity: "badge-productivity",
-  automation: "badge-automation",
-  prompts: "badge-prompts",
-};
-
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
   let post;
@@ -38,51 +31,38 @@ export default async function BlogPost({ params }: Props) {
   const { meta, contentHtml } = post;
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="mx-auto max-w-3xl px-4 py-10 md:py-16">
-        {/* Article card */}
-        <article className="bg-white rounded-2xl shadow-sm overflow-hidden">
-          {/* Header */}
-          <header className="px-6 md:px-12 pt-10 md:pt-14 pb-8">
-            <div className="flex items-center gap-3 mb-6 flex-wrap">
-              <span
-                className={`text-xs font-bold px-3 py-1.5 rounded-full ${badgeClass[meta.categorySlug] || "badge-ai-tools"}`}
-              >
-                {meta.category}
-              </span>
-              <time className="text-sm text-gray-500">{meta.date}</time>
-              <span className="text-sm text-gray-500">読了目安 {meta.readTime}</span>
-            </div>
-            <h1 className="text-2xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-              {meta.title}
-            </h1>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-              {meta.description}
-            </p>
-          </header>
-
-          {/* Divider */}
-          <div className="mx-6 md:mx-12 border-t border-gray-100" />
-
-          {/* Body */}
-          <div className="px-6 md:px-12 py-10 md:py-12">
-            <div
-              className="article-body"
-              dangerouslySetInnerHTML={{ __html: contentHtml }}
-            />
+    <div className="bg-white min-h-screen">
+      <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
+        <header className="mb-14 pb-10 border-b border-black">
+          <div className="flex items-center gap-3 mb-6 text-xs text-gray-500">
+            <span className="font-semibold text-black">{meta.category}</span>
+            <span>·</span>
+            <time>{meta.date}</time>
+            <span>·</span>
+            <span>読了 {meta.readTime}</span>
           </div>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-black leading-tight tracking-tight mb-5">
+            {meta.title}
+          </h1>
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+            {meta.description}
+          </p>
+        </header>
 
-          {/* Footer */}
-          <footer className="px-6 md:px-12 py-8 bg-gray-50 border-t border-gray-100">
-            <Link
-              href="/"
-              className="inline-flex items-center text-indigo-600 font-semibold hover:underline"
-            >
-              トップに戻る
-            </Link>
-          </footer>
-        </article>
-      </div>
+        <div
+          className="article-body"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+
+        <footer className="mt-20 pt-8 border-t border-gray-200">
+          <Link
+            href="/"
+            className="text-sm font-semibold text-black hover:underline underline-offset-4"
+          >
+            ← 記事一覧に戻る
+          </Link>
+        </footer>
+      </article>
     </div>
   );
 }

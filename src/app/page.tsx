@@ -2,136 +2,85 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 
 const categories = [
-  {
-    name: "AIツール比較",
-    slug: "ai-tools",
-    desc: "ChatGPT、Claudeなどの実体験比較",
-  },
-  {
-    name: "業務効率化",
-    slug: "productivity",
-    desc: "AIで仕事を速くする具体的な方法",
-  },
-  {
-    name: "自動化",
-    slug: "automation",
-    desc: "Zapier・Makeで業務を自動化",
-  },
-  {
-    name: "プロンプト術",
-    slug: "prompts",
-    desc: "成果を出すプロンプトの書き方",
-  },
+  { name: "AIツール比較", slug: "ai-tools" },
+  { name: "業務効率化", slug: "productivity" },
+  { name: "自動化", slug: "automation" },
+  { name: "プロンプト術", slug: "prompts" },
 ];
-
-const badgeClass: Record<string, string> = {
-  "ai-tools": "badge-ai-tools",
-  productivity: "badge-productivity",
-  automation: "badge-automation",
-  prompts: "badge-prompts",
-};
 
 export default function Home() {
   const posts = getAllPosts();
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="mx-auto max-w-5xl px-4 py-10 md:py-16">
-        {/* Hero card */}
-        <section className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-14 mb-10">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-indigo-600 mb-3">
-              実体験ベースのAI活用ガイド
-            </p>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
-              AIを使い倒す人の、
-              <br />
-              実践ガイド
-            </h1>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-              AIツールを毎日業務で使っている筆者が、本当に役立つ活用法・比較・設定手順を実例ベースでお届けします。
-            </p>
-            <div className="flex gap-3 flex-wrap">
-              <a
-                href="#articles"
-                className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition-colors"
-              >
-                記事を読む
-              </a>
-              <Link
-                href="/about"
-                className="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-full hover:bg-gray-200 transition-colors"
-              >
-                サイトについて
-              </Link>
-            </div>
-          </div>
+    <div className="bg-white min-h-screen">
+      <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
+        {/* Hero */}
+        <section className="mb-20 md:mb-28">
+          <p className="text-sm font-semibold text-gray-500 tracking-wide mb-4">
+            実機検証ベースのAI活用ガイド
+          </p>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-black leading-tight tracking-tight mb-6">
+            AIを使い倒す人の、
+            <br />
+            実践ガイド
+          </h1>
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl">
+            AIツールを業務で実際に動かしている編集部が、本当に役立つ活用法・比較・設定手順を
+            実例ベースでお届けします。
+          </p>
         </section>
 
-        {/* All articles grid */}
-        <section
-          id="articles"
-          className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-12 mb-10"
-        >
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
-              記事一覧
-            </h2>
-            <p className="text-sm text-gray-500">
-              実際に使って検証した、おすすめの記事
-            </p>
+        {/* Articles list */}
+        <section className="mb-24">
+          <div className="flex items-baseline justify-between mb-10 pb-4 border-b border-black">
+            <h2 className="text-2xl font-bold text-black">記事一覧</h2>
+            <span className="text-sm text-gray-500">{posts.length}本</span>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="divide-y divide-gray-200">
             {posts.map((post) => (
-              <article key={post.slug} className="group">
-                <Link href={`/blog/${post.slug}`} className="block">
-                  <div className="mb-3">
-                    <span
-                      className={`text-xs font-bold px-2.5 py-1 rounded-full ${badgeClass[post.categorySlug] || "badge-ai-tools"}`}
-                    >
+              <li key={post.slug}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group block py-7"
+                >
+                  <div className="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                    <span className="font-semibold text-black">
                       {post.category}
                     </span>
-                  </div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-900 leading-snug mb-2 group-hover:text-indigo-600 transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-3">
-                    {post.description}
-                  </p>
-                  <div className="flex items-center gap-3 text-xs text-gray-400">
+                    <span>·</span>
                     <time>{post.date}</time>
+                    <span>·</span>
                     <span>読了 {post.readTime}</span>
                   </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-black leading-snug mb-2 group-hover:underline underline-offset-4 decoration-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2">
+                    {post.description}
+                  </p>
                 </Link>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
 
-        {/* Categories card */}
-        <section className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-12">
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">
-              カテゴリから探す
-            </h2>
-            <p className="text-sm text-gray-500">
-              目的に合わせて記事を見つけよう
-            </p>
-          </div>
-          <div className="grid gap-3 md:grid-cols-2">
+        {/* Categories */}
+        <section>
+          <h2 className="text-2xl font-bold text-black mb-6 pb-4 border-b border-black">
+            カテゴリ
+          </h2>
+          <ul className="grid gap-1 md:grid-cols-2">
             {categories.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/category/${cat.slug}`}
-                className="block px-5 py-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group"
-              >
-                <div className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors mb-1">
+              <li key={cat.slug}>
+                <Link
+                  href={`/category/${cat.slug}`}
+                  className="block py-4 text-base font-semibold text-black hover:underline underline-offset-4"
+                >
                   {cat.name}
-                </div>
-                <div className="text-sm text-gray-500">{cat.desc}</div>
-              </Link>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       </div>
     </div>

@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3f4f6;
-  --foreground: #1f2937;
+  --background: #ffffff;
+  --foreground: #111111;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #111111;
+  --link: #1d4ed8;
 }
 
 @theme inline {
@@ -20,59 +24,49 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.hero-gradient {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+/* Category label (monochrome outline) */
+.badge-ai-tools,
+.badge-productivity,
+.badge-automation,
+.badge-prompts {
+  background: transparent;
+  color: #111111;
+  border: 1px solid #111111;
+  font-weight: 600;
 }
-
-.card-hover {
-  transition: all 0.2s ease;
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.badge-ai-tools { background: #eef2ff; color: #4338ca; }
-.badge-productivity { background: #ecfdf5; color: #047857; }
-.badge-automation { background: #fff7ed; color: #c2410c; }
-.badge-prompts { background: #fdf4ff; color: #9333ea; }
 
 /* Article body typography */
 .article-body {
   font-size: 17px;
-  line-height: 1.95;
-  color: #374151;
+  line-height: 2.0;
+  color: #1f2937;
   letter-spacing: 0.02em;
 }
 
 .article-body h2 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1.4;
-  margin-top: 64px;
+  margin-top: 72px;
   margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 3px solid #4f46e5;
-  color: #111827;
+  color: #111111;
 }
 
 .article-body h3 {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.5;
   margin-top: 48px;
-  margin-bottom: 18px;
-  padding-left: 14px;
-  border-left: 5px solid #4f46e5;
-  color: #111827;
+  margin-bottom: 16px;
+  color: #111111;
 }
 
 .article-body h4 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   margin-top: 36px;
-  margin-bottom: 14px;
-  color: #111827;
+  margin-bottom: 12px;
+  color: #111111;
 }
 
 .article-body p {
@@ -81,50 +75,48 @@ body {
 }
 
 .article-body strong {
-  color: #111827;
+  color: #111111;
   font-weight: 700;
-  background: linear-gradient(transparent 65%, #fef08a 65%);
-  padding: 0 2px;
 }
 
 .article-body a {
-  color: #4f46e5;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid #c7d2fe;
-  padding-bottom: 1px;
+  color: var(--link);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
 .article-body a:hover {
-  border-bottom-color: #4f46e5;
+  text-decoration-thickness: 2px;
 }
 
 .article-body ul,
 .article-body ol {
   margin-bottom: 28px;
-  padding-left: 28px;
+  padding-left: 24px;
 }
 .article-body ul { list-style: disc; }
 .article-body ol { list-style: decimal; }
 
 .article-body li {
-  margin-bottom: 10px;
-  line-height: 1.85;
+  margin-bottom: 8px;
+  line-height: 1.9;
 }
 
 .article-body code {
   background: #f3f4f6;
-  color: #be185d;
+  color: #111111;
   padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.9em;
+  border-radius: 3px;
+  font-size: 0.88em;
   font-family: ui-monospace, "SF Mono", Consolas, monospace;
 }
 
 .article-body pre {
-  background: #1e293b;
-  color: #e2e8f0;
+  background: #111111;
+  color: #e5e7eb;
   padding: 20px 24px;
-  border-radius: 12px;
+  border-radius: 6px;
   overflow-x: auto;
   margin-bottom: 28px;
   font-size: 14px;
@@ -137,35 +129,9 @@ body {
 }
 
 .article-body blockquote {
-  border-left: 4px solid #4f46e5;
-  background: #f5f3ff;
-  padding: 18px 24px;
+  border-left: 3px solid #111111;
+  padding: 4px 0 4px 20px;
   margin-bottom: 28px;
-  border-radius: 0 8px 8px 0;
   color: #4b5563;
-}
-
-.article-body table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 28px;
-  font-size: 15px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.article-body th {
-  background: #f3f4f6;
-  font-weight: 700;
-  padding: 12px 16px;
-  text-align: left;
-  color: #111827;
-  border-bottom: 2px solid #e5e7eb;
-}
-.article-body td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #f3f4f6;
-}
-.article-body tr:last-child td {
-  border-bottom: none;
+  font-style: normal;
 }

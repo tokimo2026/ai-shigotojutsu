@@ -8,7 +8,7 @@ type Props = { params: Promise<{ slug: string }> };
 const categoryMap: Record<string, { name: string; desc: string }> = {
   "ai-tools": {
     name: "AIツール比較",
-    desc: "ChatGPT・Claudeなど主要AIツールの実体験レビューと比較",
+    desc: "ChatGPT・Claudeなど主要AIツールの実機検証レビューと比較",
   },
   productivity: {
     name: "業務効率化",
@@ -22,13 +22,6 @@ const categoryMap: Record<string, { name: string; desc: string }> = {
     name: "プロンプト術",
     desc: "成果を出すプロンプトの書き方とテンプレート集",
   },
-};
-
-const badgeClass: Record<string, string> = {
-  "ai-tools": "badge-ai-tools",
-  productivity: "badge-productivity",
-  automation: "badge-automation",
-  prompts: "badge-prompts",
 };
 
 export function generateStaticParams() {
@@ -50,61 +43,58 @@ export default async function CategoryPage({ params }: Props) {
   const posts = getAllPosts().filter((p) => p.categorySlug === slug);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="mx-auto max-w-5xl px-4 py-10 md:py-16">
-        <section className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-14 mb-8">
-          <p className="text-sm font-semibold text-indigo-600 mb-3">
+    <div className="bg-white min-h-screen">
+      <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
+        <section className="mb-16">
+          <p className="text-sm font-semibold text-gray-500 tracking-wide mb-4">
             カテゴリ
           </p>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black leading-tight tracking-tight mb-4">
             {cat.name}
           </h1>
-          <p className="text-base text-gray-600 leading-relaxed">{cat.desc}</p>
-          <p className="text-sm text-gray-400 mt-4">{posts.length}件の記事</p>
+          <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl">
+            {cat.desc}
+          </p>
+          <p className="text-sm text-gray-500 mt-5">{posts.length}本の記事</p>
         </section>
 
-        <section className="bg-white rounded-2xl shadow-sm px-6 md:px-12 py-10 md:py-12">
+        <section className="mb-16">
+          <div className="border-b border-black mb-6" />
           {posts.length === 0 ? (
-            <p className="text-gray-500 text-center py-8">
+            <p className="text-gray-500 py-8">
               このカテゴリの記事はまだありません。
             </p>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2">
+            <ul className="divide-y divide-gray-200">
               {posts.map((post) => (
-                <article key={post.slug} className="group">
-                  <Link href={`/blog/${post.slug}`} className="block">
-                    <div className="mb-3">
-                      <span
-                        className={`text-xs font-bold px-2.5 py-1 rounded-full ${badgeClass[post.categorySlug] || "badge-ai-tools"}`}
-                      >
-                        {post.category}
-                      </span>
-                    </div>
-                    <h3 className="text-base md:text-lg font-bold text-gray-900 leading-snug mb-2 group-hover:text-indigo-600 transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-3">
-                      {post.description}
-                    </p>
-                    <div className="flex items-center gap-3 text-xs text-gray-400">
+                <li key={post.slug}>
+                  <Link href={`/blog/${post.slug}`} className="group block py-7">
+                    <div className="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                      <span className="font-semibold text-black">{post.category}</span>
+                      <span>·</span>
                       <time>{post.date}</time>
+                      <span>·</span>
                       <span>読了 {post.readTime}</span>
                     </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-black leading-snug mb-2 group-hover:underline underline-offset-4 decoration-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2">
+                      {post.description}
+                    </p>
                   </Link>
-                </article>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </section>
 
-        <div className="mt-8 text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center text-indigo-600 font-semibold hover:underline"
-          >
-            トップに戻る
-          </Link>
-        </div>
+        <Link
+          href="/"
+          className="text-sm font-semibold text-black hover:underline underline-offset-4"
+        >
+          ← トップに戻る
+        </Link>
       </div>
     </div>
   );
