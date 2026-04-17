@@ -10,22 +10,123 @@ export default async function Image() {
     (
       <div
         style={{
+          display: "flex",
           width: "100%",
           height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          color: "white",
+          background: "#faf7f2",
+          color: "#1a1a1a",
           fontFamily: "sans-serif",
-          padding: "80px",
         }}
       >
-        <div style={{ fontSize: 90, marginBottom: 20 }}>🤖</div>
-        <div style={{ fontSize: 80, fontWeight: 900, marginBottom: 16 }}>AI仕事術</div>
-        <div style={{ fontSize: 34, opacity: 0.9, textAlign: "center" }}>
-          AIツールを使い倒した実践ガイド
+        {/* Left coral accent bar */}
+        <div
+          style={{
+            display: "flex",
+            width: 20,
+            height: "100%",
+            background: "#da7756",
+          }}
+        />
+
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            flexDirection: "column",
+            justifyContent: "space-between",
+            padding: "80px 90px",
+          }}
+        >
+          {/* Top: eyebrow */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 22,
+                fontWeight: 800,
+                color: "#9c3d1d",
+                letterSpacing: 6,
+                textTransform: "uppercase",
+              }}
+            >
+              Editorial · Hands-on Review
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: 60,
+                height: 4,
+                background: "#1a1a1a",
+              }}
+            />
+          </div>
+
+          {/* Hero */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 20,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontSize: 104,
+                fontWeight: 900,
+                color: "#1a1a1a",
+                lineHeight: 1.1,
+                letterSpacing: 2,
+              }}
+            >
+              AI仕事術
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 34,
+                color: "#3a3530",
+                fontWeight: 600,
+                letterSpacing: 1,
+              }}
+            >
+              AIツールを使い倒した実践ガイド
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingTop: 30,
+              borderTop: "2px solid #1a1a1a",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontSize: 22,
+                fontWeight: 700,
+                color: "#6b6459",
+                letterSpacing: 2,
+              }}
+            >
+              Next.js · Claude · Tailwind
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 22,
+                fontWeight: 700,
+                color: "#6b6459",
+                letterSpacing: 2,
+              }}
+            >
+              ai-shigotojutsu.com
+            </div>
+          </div>
         </div>
       </div>
     ),

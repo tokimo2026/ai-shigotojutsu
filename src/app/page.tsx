@@ -8,16 +8,20 @@ const categories = [
   { name: "プロンプト術", slug: "prompts", desc: "成果を出すプロンプトの書き方" },
 ];
 
+const SPOTLIGHT_SLUG = "building-this-site-with-claude-code";
+
 export default function Home() {
   const posts = getAllPosts();
-  const [featured, ...rest] = posts;
+  const spotlight = posts.find((p) => p.slug === SPOTLIGHT_SLUG);
+  const nonSpotlight = posts.filter((p) => p.slug !== SPOTLIGHT_SLUG);
+  const [featured, ...rest] = nonSpotlight;
 
   return (
     <div className="min-h-screen">
       <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         {/* Hero */}
         <section className="mb-20 md:mb-28 max-w-3xl">
-          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+          <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-5">
             Editorial · Hands-on Review
           </p>
           <h1 className="font-serif-jp text-4xl md:text-6xl font-bold text-[#1a1a1a] leading-[1.3] tracking-tight mb-7">
@@ -44,10 +48,39 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Spotlight: build log */}
+        {spotlight && (
+          <section className="mb-20">
+            <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-4">
+              Spotlight · Built with Claude Code
+            </p>
+            <Link href={`/blog/${spotlight.slug}`} className="group block">
+              <div className="bg-[#1a1a1a] text-[#faf7f2] p-8 md:p-12 hover:bg-[#2a2a2a] transition-colors">
+                <div className="flex items-center gap-3 mb-4 text-xs text-[#b8b2a8]">
+                  <span className="font-semibold text-[#f4a488]">
+                    構築ログ
+                  </span>
+                  <span>·</span>
+                  <time>{spotlight.date}</time>
+                </div>
+                <h2 className="font-serif-jp text-2xl md:text-4xl font-bold leading-[1.35] mb-4 group-hover:text-[#f4a488] transition-colors">
+                  {spotlight.title}
+                </h2>
+                <p className="text-sm md:text-base text-[#e8e2d6] leading-relaxed mb-6">
+                  {spotlight.description}
+                </p>
+                <p className="inline-flex items-center gap-2 text-sm font-semibold text-[#f4a488]">
+                  構築ログを読む →
+                </p>
+              </div>
+            </Link>
+          </section>
+        )}
+
         {/* Featured article */}
         {featured && (
           <section className="mb-20">
-            <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-4">
+            <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-4">
               Featured
             </p>
             <Link href={`/blog/${featured.slug}`} className="group block">
@@ -76,7 +109,7 @@ export default function Home() {
         <section id="articles" className="mb-24">
           <div className="flex items-baseline justify-between mb-8">
             <div>
-              <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-2">
+              <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-2">
                 All Articles
               </p>
               <h2 className="font-serif-jp text-2xl font-bold text-[#1a1a1a]">
@@ -111,7 +144,7 @@ export default function Home() {
 
         {/* Categories */}
         <section>
-          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-2">
+          <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-2">
             Topics
           </p>
           <h2 className="font-serif-jp text-2xl font-bold text-[#1a1a1a] mb-8">

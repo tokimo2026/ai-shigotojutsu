@@ -12,7 +12,7 @@ export default function AboutPage() {
     <div className="min-h-screen">
       <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <header className="mb-16">
-          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+          <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-5">
             About
           </p>
           <h1 className="font-serif-jp text-3xl md:text-5xl font-bold text-[#1a1a1a] leading-[1.3] tracking-tight mb-4">
@@ -46,6 +46,10 @@ export default function AboutPage() {
           <h2>運営者</h2>
           <p>
             AI仕事術 編集部。AIツール・自動化・業務効率化に関する情報を、実機検証ベースで発信するメディアです。中の人は本業でWeb制作・コンサルティングに携わっており、日常業務でAIツールを実際に運用しています。
+          </p>
+          <p>
+            note でも AI ・業務効率化に関する発信をしています：
+            <a href="https://note.com/tokimo1109" target="_blank" rel="noopener noreferrer">note @tokimo1109</a>
           </p>
 
           <h2>お問い合わせ</h2>

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <div className="min-h-screen">
       <article className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <header className="mb-16">
-          <p className="text-[10px] font-bold text-[#da7756] tracking-[0.25em] uppercase mb-5">
+          <p className="text-[10px] font-bold text-[#9c3d1d] tracking-[0.25em] uppercase mb-5">
             Legal
           </p>
           <h1 className="font-serif-jp text-3xl md:text-5xl font-bold text-[#1a1a1a] leading-[1.3] tracking-tight">

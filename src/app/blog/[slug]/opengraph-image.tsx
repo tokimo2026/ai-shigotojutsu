@@ -25,50 +25,103 @@ export default async function Image({
           display: "flex",
           width: "100%",
           height: "100%",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          color: "white",
+          background: "#faf7f2",
+          color: "#1a1a1a",
           fontFamily: "sans-serif",
-          padding: "70px 80px",
+          position: "relative",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ display: "flex", fontSize: 50 }}>{meta.emoji}</div>
+        {/* Left coral accent bar */}
+        <div
+          style={{
+            display: "flex",
+            width: 20,
+            height: "100%",
+            background: "#da7756",
+          }}
+        />
+
+        {/* Main content */}
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            flexDirection: "column",
+            justifyContent: "space-between",
+            padding: "70px 80px 60px 80px",
+          }}
+        >
+          {/* Top: category label */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 22,
+                fontWeight: 800,
+                color: "#9c3d1d",
+                letterSpacing: 6,
+                textTransform: "uppercase",
+              }}
+            >
+              {meta.category}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: 60,
+                height: 4,
+                background: "#1a1a1a",
+              }}
+            />
+          </div>
+
+          {/* Middle: title */}
           <div
             style={{
               display: "flex",
-              fontSize: 28,
-              fontWeight: 700,
-              background: "rgba(255,255,255,0.2)",
-              padding: "8px 20px",
-              borderRadius: 999,
+              fontSize: 58,
+              fontWeight: 900,
+              lineHeight: 1.3,
+              color: "#1a1a1a",
+              maxWidth: 980,
             }}
           >
-            {meta.category}
+            {meta.title}
           </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            fontSize: 60,
-            fontWeight: 900,
-            lineHeight: 1.2,
-          }}
-        >
-          {meta.title}
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            fontSize: 28,
-            opacity: 0.9,
-          }}
-        >
-          <div style={{ display: "flex" }}>🤖 AI仕事術</div>
-          <div style={{ display: "flex" }}>📖 {meta.readTime}</div>
+
+          {/* Bottom: brand + meta */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingTop: 30,
+              borderTop: "2px solid #1a1a1a",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontSize: 30,
+                fontWeight: 900,
+                color: "#1a1a1a",
+                letterSpacing: 2,
+              }}
+            >
+              AI仕事術
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 22,
+                fontWeight: 600,
+                color: "#6b6459",
+                letterSpacing: 2,
+              }}
+            >
+              ai-shigotojutsu.com
+            </div>
+          </div>
         </div>
       </div>
     ),

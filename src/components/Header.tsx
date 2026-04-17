@@ -15,7 +15,7 @@ export function Header() {
           <span className="font-serif-jp text-2xl font-bold text-[#1a1a1a] tracking-tight">
             AI仕事術
           </span>
-          <span className="text-[10px] font-semibold text-[#da7756] tracking-[0.2em] uppercase">
+          <span className="text-[10px] font-semibold text-[#9c3d1d] tracking-[0.2em] uppercase">
             Craft
           </span>
         </Link>

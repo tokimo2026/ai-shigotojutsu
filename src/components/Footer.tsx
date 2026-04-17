@@ -9,13 +9,21 @@ export function Footer() {
             <p className="font-serif-jp text-xl font-bold text-white mb-3">
               AI仕事術
             </p>
-            <p className="text-sm leading-relaxed text-[#b8b2a8]">
+            <p className="text-sm leading-relaxed text-[#b8b2a8] mb-4">
               AIツールを実機検証する編集部が運営する実践ガイド。
               本音のレビューと、再現可能な手順をお届けします。
             </p>
+            <a
+              href="https://note.com/tokimo1109"
+              target="_blank"
+              rel="noopener"
+              className="inline-block text-xs font-semibold text-[#f4a488] hover:text-white transition-colors tracking-wider"
+            >
+              note @tokimo1109 →
+            </a>
           </div>
           <div>
-            <p className="text-[10px] font-semibold text-[#da7756] tracking-[0.2em] uppercase mb-4">
+            <p className="text-[10px] font-semibold text-[#f4a488] tracking-[0.2em] uppercase mb-4">
               Category
             </p>
             <ul className="space-y-2.5 text-sm text-[#b8b2a8]">
@@ -26,7 +34,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-[10px] font-semibold text-[#da7756] tracking-[0.2em] uppercase mb-4">
+            <p className="text-[10px] font-semibold text-[#f4a488] tracking-[0.2em] uppercase mb-4">
               About
             </p>
             <ul className="space-y-2.5 text-sm text-[#b8b2a8]">
@@ -37,7 +45,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-[#3a3530] pt-6 text-center text-xs text-[#6b6459]">
+        <div className="border-t border-[#3a3530] pt-6 text-center text-xs text-[#9c958a]">
           &copy; {new Date().getFullYear()} AI仕事術. All rights reserved.
         </div>
       </div>
